@@ -1,33 +1,73 @@
 import flet as ft
 def categorias(page: ft.Page):
+    page.bgcolor = ft.colors.BLACK
     page.title = "Categorias"
 
     # Campos de entrada
-    nombre_input = ft.TextField(label="Nombre", width=300)
-    descripcion_input = ft.TextField(label="Descripcion",width=300)
-    # Botón para enviar
-    def enviar_click(e):
-        page.dialog = ft.AlertDialog(
-            title=ft.Text("Datos recibidos"),
-            content=ft.Text(f"Nombre: {nombre_input.value}\nApellido: {descripcion_input.value}"),
+    nombre_input = ft.TextField(
+        label="Nombre", 
+        width=300,
+        bgcolor = ft.colors.PINK,
+        label_style = ft.TextStyle(color=ft.colors.BLACK)
         )
-        page.dialog.open = True
-        page.update()
+    descripcion_input = ft.TextField(
+        label="Descripcion",
+        width=300,
+        bgcolor = ft.colors.PINK,
+        label_style = ft.TextStyle(color=ft.colors.BLACK)
+        )
+    
+    #Estilos de botones
+    boton_enviar = ft.ElevatedButton(
+        text ="Enviar",
+        style = ft.ButtonStyle(
+            bgcolor = ft.colors.GREEN,
+            color = ft.colors.BLACK,
+            padding = 13,
+            shape = ft.RoundedRectangleBorder(radius=10),
+            text_style = ft.TextStyle(
+            size = 18,
+            weight = ft.FontWeight.BOLD,
+        )
+        )
+    )
+    boton_salir = ft.ElevatedButton(
+        text ="Salir",
+        style = ft.ButtonStyle(
+            bgcolor = ft.colors.RED,
+            color = ft.colors.BLACK,
+            padding = 13,
+            shape = ft.RoundedRectangleBorder(radius=10),
+            text_style = ft.TextStyle(
+            size = 18,
+            weight = ft.FontWeight.BOLD,
+        )
+        )
+    )
+    fila_botones = ft.Row(
+        controls = [boton_enviar, boton_salir],
+        alignment = ft.MainAxisAlignment.CENTER  # Para alinearlos a la derecha
+    ) 
 
-    boton_enviar = ft.ElevatedButton("Enviar", on_click=enviar_click)
+    # Columna centrada con los campos
+    contenido = ft.Column(
+        [
+            ft.Text("Añadir Categoria", size=30, weight="bold", color=ft.colors.WHITE),
+            nombre_input,
+            descripcion_input,
+            fila_botones
+        ],
+        alignment = ft.MainAxisAlignment.CENTER,  
+        horizontal_alignment = ft.CrossAxisAlignment.CENTER,  
+    )
 
-    # Agregamos al layout
+    # Contenedor que ocupa toda la pantalla y centra la columna
     page.add(
-        ft.Column(
-            [
-                ft.Text("Añadir Proveedor", size=25, weight="bold"),
-                nombre_input,
-                descripcion_input,
-                boton_enviar,
-            ],
-            alignment=ft.MainAxisAlignment.START,
-            horizontal_alignment=ft.CrossAxisAlignment.START
+        ft.Container(
+            content = contenido,
+            alignment = ft.alignment.center,
+            expand=True  # Ocupa todo el espacio de la pantalla
         )
     )
 
-ft.app(target=categorias)
+ft.app(target = categorias)
