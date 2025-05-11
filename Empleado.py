@@ -1,40 +1,27 @@
 import flet as ft
-def proveedor(page: ft.Page):
-    page.bgcolor = ft.colors.BLACK
-    page.title = "Proveedor"
 
-    # Campos de entrada
-    nombre_input = ft.TextField(
-        label="Nombre", 
+def empleado(page: ft.Page):
+    page.bgcolor = ft.colors.BLACK
+    page.title = "Empleado"
+    
+    nombres_input = ft.TextField(
+        label="Nombres", 
         width=300,
         bgcolor = ft.colors.PINK,
         label_style = ft.TextStyle(color=ft.colors.BLACK)
         )
-    correo_input = ft.TextField(
-        label="Email",
-        width=300,
-        bgcolor = ft.colors.PINK,
-        label_style = ft.TextStyle(color=ft.colors.BLACK)
-        )
-    telefono_input = ft.TextField(
-        label="Telefono", 
-        width=300,
-        bgcolor = ft.colors.PINK,
-        label_style = ft.TextStyle(color=ft.colors.BLACK)
-        )
-    direccion_input = ft.TextField(
-        label="Direccion", 
+    apellidos_input = ft.TextField(
+        label="Apellidos",
         width=300,
         bgcolor = ft.colors.PINK,
         label_style = ft.TextStyle(color=ft.colors.BLACK)
         )
     rfc_input = ft.TextField(
-        label = "RFC",
-        width = 300,
+        label="RFC",
+        width=300,
         bgcolor = ft.colors.PINK,
         label_style = ft.TextStyle(color=ft.colors.BLACK)
     )
-    
     #Estilos de botones
     boton_enviar = ft.ElevatedButton(
         text ="Enviar",
@@ -70,11 +57,9 @@ def proveedor(page: ft.Page):
     # Columna centrada con los campos
     contenido = ft.Column(
         [
-            ft.Text("Añadir Proveedor", size=30, weight="bold", color=ft.colors.WHITE),
-            nombre_input,
-            correo_input,
-            telefono_input,
-            direccion_input,
+            ft.Text("Añadir Empleado", size=30, weight="bold", color=ft.colors.WHITE),
+            nombres_input,
+            apellidos_input,
             rfc_input,
             fila_botones
         ],
@@ -91,4 +76,4 @@ def proveedor(page: ft.Page):
         )
     )
 
-ft.app(target = proveedor)
+ft.app(target = empleado)

@@ -1,5 +1,5 @@
 import flet as ft
-def unidades(page: ft.Page):
+def unidad(page: ft.Page):
     page.bgcolor = ft.colors.BLACK
     page.title = "Categorias"
 
@@ -69,4 +69,4 @@ def unidades(page: ft.Page):
         )
     )
 
-ft.app(target = unidades)
+ft.app(target = unidad)

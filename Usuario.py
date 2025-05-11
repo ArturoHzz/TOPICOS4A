@@ -1,40 +1,27 @@
 import flet as ft
-def proveedor(page: ft.Page):
-    page.bgcolor = ft.colors.BLACK
-    page.title = "Proveedor"
 
-    # Campos de entrada
-    nombre_input = ft.TextField(
+def usuario(page: ft.Page):
+    page.bgcolor = ft.colors.BLACK
+    page.title = "Usuarios"
+    
+    nombreUsuario_input = ft.TextField(
         label="Nombre", 
         width=300,
         bgcolor = ft.colors.PINK,
         label_style = ft.TextStyle(color=ft.colors.BLACK)
         )
-    correo_input = ft.TextField(
-        label="Email",
+    contraseniaUsuario_input = ft.TextField(
+        label="Contraseña",
         width=300,
         bgcolor = ft.colors.PINK,
         label_style = ft.TextStyle(color=ft.colors.BLACK)
         )
-    telefono_input = ft.TextField(
-        label="Telefono", 
+    rol_input = ft.TextField(
+        label="Rol",
         width=300,
-        bgcolor = ft.colors.PINK,
-        label_style = ft.TextStyle(color=ft.colors.BLACK)
-        )
-    direccion_input = ft.TextField(
-        label="Direccion", 
-        width=300,
-        bgcolor = ft.colors.PINK,
-        label_style = ft.TextStyle(color=ft.colors.BLACK)
-        )
-    rfc_input = ft.TextField(
-        label = "RFC",
-        width = 300,
         bgcolor = ft.colors.PINK,
         label_style = ft.TextStyle(color=ft.colors.BLACK)
     )
-    
     #Estilos de botones
     boton_enviar = ft.ElevatedButton(
         text ="Enviar",
@@ -70,12 +57,10 @@ def proveedor(page: ft.Page):
     # Columna centrada con los campos
     contenido = ft.Column(
         [
-            ft.Text("Añadir Proveedor", size=30, weight="bold", color=ft.colors.WHITE),
-            nombre_input,
-            correo_input,
-            telefono_input,
-            direccion_input,
-            rfc_input,
+            ft.Text("Añadir Usuario", size=30, weight="bold", color=ft.colors.WHITE),
+            nombreUsuario_input,
+            contraseniaUsuario_input,
+            rol_input,
             fila_botones
         ],
         alignment = ft.MainAxisAlignment.CENTER,  
@@ -91,4 +76,4 @@ def proveedor(page: ft.Page):
         )
     )
 
-ft.app(target = proveedor)
+ft.app(target = usuario)

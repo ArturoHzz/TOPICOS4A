@@ -1,7 +1,7 @@
 import flet as ft
-def proveedor(page: ft.Page):
+def formaPago(page: ft.Page):
     page.bgcolor = ft.colors.BLACK
-    page.title = "Proveedor"
+    page.title = "Forma de pago"
 
     # Campos de entrada
     nombre_input = ft.TextField(
@@ -10,31 +10,6 @@ def proveedor(page: ft.Page):
         bgcolor = ft.colors.PINK,
         label_style = ft.TextStyle(color=ft.colors.BLACK)
         )
-    correo_input = ft.TextField(
-        label="Email",
-        width=300,
-        bgcolor = ft.colors.PINK,
-        label_style = ft.TextStyle(color=ft.colors.BLACK)
-        )
-    telefono_input = ft.TextField(
-        label="Telefono", 
-        width=300,
-        bgcolor = ft.colors.PINK,
-        label_style = ft.TextStyle(color=ft.colors.BLACK)
-        )
-    direccion_input = ft.TextField(
-        label="Direccion", 
-        width=300,
-        bgcolor = ft.colors.PINK,
-        label_style = ft.TextStyle(color=ft.colors.BLACK)
-        )
-    rfc_input = ft.TextField(
-        label = "RFC",
-        width = 300,
-        bgcolor = ft.colors.PINK,
-        label_style = ft.TextStyle(color=ft.colors.BLACK)
-    )
-    
     #Estilos de botones
     boton_enviar = ft.ElevatedButton(
         text ="Enviar",
@@ -70,12 +45,8 @@ def proveedor(page: ft.Page):
     # Columna centrada con los campos
     contenido = ft.Column(
         [
-            ft.Text("Añadir Proveedor", size=30, weight="bold", color=ft.colors.WHITE),
+            ft.Text("Añadir Forma de pago", size=30, weight="bold", color=ft.colors.WHITE),
             nombre_input,
-            correo_input,
-            telefono_input,
-            direccion_input,
-            rfc_input,
             fila_botones
         ],
         alignment = ft.MainAxisAlignment.CENTER,  
@@ -91,4 +62,4 @@ def proveedor(page: ft.Page):
         )
     )
 
-ft.app(target = proveedor)
+ft.app(target = formaPago)
