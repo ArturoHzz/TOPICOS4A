@@ -1,23 +1,32 @@
 USE dbfarmacia;
 
+-- Categorías
+INSERT INTO categoria (idCategoria, Nombre) VALUES
+(1, 'Analgésicos'),
+(2, 'Antibióticos'),
+(3, 'Antiinflamatorios'),
+(4, 'Antigripales'),
+(5, 'Vitaminas'),
+(6, 'Antisépticos');
+
 -- Clientes
 INSERT INTO cliente (idTelefono, Nombres, Apellidos, Correo) VALUES
-('9611234567', 'Juan', 'Pérez', 'juanperez@gmail.com'),
-('9639876543', 'Ana', 'García', 'ana.garcia@yahoo.com'),
-('9611122334', 'Luis', 'Martínez', 'luis.mtz@outlook.com'),
-('9634455667', 'María', 'López', 'maria.lopez@hotmail.com'),
-('9619988776', 'José', 'Ramírez', 'j.ramirez@gmail.com'),
-('9632233445', 'Lucía', 'Fernández', 'luciaf@gmail.com'),
+('9611234567', 'Juan', 'Perez', 'juanperez@gmail.com'),
+('9639876543', 'Ana', 'Garcia', 'ana.garcia@yahoo.com'),
+('9611122334', 'Luis', 'Martinez', 'luis.mtz@outlook.com'),
+('9634455667', 'Maria', 'Lopez', 'maria.lopez@hotmail.com'),
+('9619988776', 'Jose', 'Ramirez', 'j.ramirez@gmail.com'),
+('9632233445', 'Lucia', 'Fernandez', 'luciaf@gmail.com'),
 ('9613344556', 'Pedro', 'Castillo', 'pedro.castillo@correo.com'),
-('9635566778', 'Sofía', 'Hernández', 'sofia.hdez@mail.com');
+('9635566778', 'Sofia', 'Hernandez', 'sofia.hdez@mail.com');
 
 -- Empleados
 INSERT INTO empleado (idEmpleado, Nombres, Apellidos, RFC) VALUES
-(1, 'Carlos', 'Ramírez', 'CARM750812Q12'),
-(2, 'Sofía', 'López', 'SOLP920105T89'),
-(3, 'Miguel', 'Hernández', 'MIHE850720L21'),
+(1, 'Carlos', 'Ramirez', 'CARM750812Q12'),
+(2, 'Sofia', 'Lopez', 'SOLP920105T89'),
+(3, 'Miguel', 'Hernandez', 'MIHE850720L21'),
 (4, 'Elena', 'Reyes', 'ELRE990101A10'),
-(5, 'Jorge', 'Núñez', 'JONU860512C45');
+(5, 'Jorge', 'Nuñez', 'JONU860512C45');
 
 -- Proveedores
 INSERT INTO proveedor (idProveedor, Nombre, Telefono, Email, Direccion, Rfc) VALUES
@@ -31,8 +40,7 @@ INSERT INTO formapago (idFormaPago, Nombre) VALUES
 (1, 'Efectivo'),
 (2, 'Tarjeta de Débito'),
 (3, 'Tarjeta de Crédito'),
-(4, 'Transferencia'),
-(5, 'Vales');
+(4, 'Transferencia');
 
 -- Unidades
 INSERT INTO unidad (idUnidad, Nombre, Abreviatura) VALUES
