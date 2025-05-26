@@ -10,6 +10,8 @@ def obtener_empleados(orden="id"):
         query = "SELECT * FROM empleado ORDER BY idEmpleado DESC"
     elif orden == "apellido":
         query = "SELECT * FROM empleado ORDER BY Apellidos ASC"
+    elif orden == "nombreApellido":
+        query = "SELECT idEmpleado, CONCAT(Nombres, ' ', Apellidos) nombre_completo FROM empleado"
     else:
         query = "SELECT * FROM empleado"
 

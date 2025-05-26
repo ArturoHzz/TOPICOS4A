@@ -49,3 +49,20 @@ INSERT INTO unidad (idUnidad, Nombre, Abreviatura) VALUES
 (3, 'Microgramos', 'mcg'),
 (4, 'Mililitros', 'mL'),
 (5, 'Litros', 'L');
+
+
+-- Productos
+INSERT INTO producto (
+  idCodigo, Nombre, Contenido, CostoUnitario, PrecioUnitario,
+  Existencia, Activo, Categoria_idCategoria, Unidad_idUnidad
+) VALUES
+('7502223709225', 'Paracetamol', 500, 20.00, 31.00, 50, 1, 1, 1),
+('7502223709348', 'Omeprazol', 20, 80.00, 133.00, 20, 1, 2, 1),
+('7501008401005', 'Ibuprofeno', 400, 15.00, 25.00, 100, 1, 3, 1),
+('7501008402002', 'Amoxicilina', 500, 20.00, 35.00, 80, 1, 2, 1),
+('7501008403009', 'Vitamina C', 1000, 10.00, 18.00, 120, 1, 5, 1),
+('7501008404006', 'Loratadina', 10, 12.00, 20.00, 90, 1, 4, 1),
+('7501008405003', 'Clorhexidina', 250, 30.00, 50.00, 60, 1, 6, 4),
+('7501035921111', 'Diclofenaco', 100, 18.00, 30.00, 70, 1, 3, 1),
+('7501078211000', 'Cefalexina', 500, 25.00, 40.00, 50, 1, 2, 1),
+('7502222100988', 'Ácido Fólico', 5, 5.00, 9.00, 110, 1, 5, 1);

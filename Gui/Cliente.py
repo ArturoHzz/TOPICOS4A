@@ -2,7 +2,7 @@ import flet as ft
 from Persistence.Cliente_db import insertar_cliente, obtener_cliente, actualizar_cliente_id, eliminar_cliente_id
 
 def cliente_view(page: ft.Page):
-    txt_id = ft.TextField(label="ID Teléfono", disabled=False)
+    txt_id = ft.TextField(label="ID Teléfono(10 Digitos)", disabled=False,max_length=10)
     txt_nombre = ft.TextField(label="Nombres")
     txt_apellidos = ft.TextField(label="Apellidos")
     txt_correo = ft.TextField(label="Correo")

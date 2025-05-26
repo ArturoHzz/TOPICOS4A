@@ -10,6 +10,8 @@ def obtener_proveedores(orden="id"):
         query = "SELECT * FROM proveedor ORDER BY idProveedor DESC"
     elif orden == "nombre":
         query = "SELECT * FROM proveedor ORDER BY Nombre ASC"
+    elif orden == "nombre_id":
+        query = "SELECT idProveedor,Nombre FROM proveedor"
     else:
         query = "SELECT * FROM proveedor"
 

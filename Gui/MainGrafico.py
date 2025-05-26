@@ -5,7 +5,9 @@ from Gui.Empleado import empleado_view
 from Gui.FormaPago import formapago_view
 from Gui.Proveedor import proveedor_view
 from Gui.Unidad import unidad_view
-
+from Gui.Producto import producto_view
+from Gui.Compra import compra_view
+from Gui.Venta import venta_view
 def main(page: ft.Page):
     page.title = "Sistema Farmacia"
 
@@ -31,6 +33,12 @@ def main(page: ft.Page):
             page.views.append(proveedor_view(page))
         elif page.route == "/unidad":
             page.views.append(unidad_view(page))
+        elif page.route == "/producto":
+            page.views.append(producto_view(page))
+        elif page.route == "/compra":
+            page.views.append(compra_view(page))
+        elif page.route == "/venta":
+            page.views.append(venta_view(page))
         else:
             # Vista principal estilizada
             page.views.append(
@@ -46,7 +54,11 @@ def main(page: ft.Page):
                                     ft.ElevatedButton("Empleado", icon=ft.icons.BADGE, on_click=lambda e: page.go("/empleado")),
                                     ft.ElevatedButton("Forma de Pago", icon=ft.icons.PAYMENTS, on_click=lambda e: page.go("/formapago")),
                                     ft.ElevatedButton("Proveedor", icon=ft.icons.LOCAL_SHIPPING, on_click=lambda e: page.go("/proveedor")),
-                                    ft.ElevatedButton("Unidad", icon=ft.icons.SQUARE_FOOT, on_click=lambda e: page.go("/unidad")),
+                                    ft.ElevatedButton("Unidad", icon=ft.icons.SCALE, on_click=lambda e: page.go("/unidad")),
+                                    ft.ElevatedButton("Producto", icon=ft.icons.LOCAL_PHARMACY, on_click=lambda e: page.go("/producto")),
+                                    ft.ElevatedButton("Compra", icon=ft.icons.SHOPPING_CART, on_click=lambda e: page.go("/compra")),
+                                    ft.ElevatedButton("Venta", icon=ft.icons.POINT_OF_SALE, on_click=lambda e: page.go("/venta"))
+
                                 ],
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
