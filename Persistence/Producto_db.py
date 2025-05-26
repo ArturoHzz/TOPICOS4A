@@ -57,32 +57,25 @@ def disminuir_existencia(id_producto, cantidad):
 
 def obtener_producto_por_codigo(codigo_barras):
     """
-    Busca un producto por su código de barras
-    
-    Args:
-        codigo_barras (str): El código de barras a buscar
-        
-    Returns:
-        tuple: Los datos del producto (id, nombre, precio, codigo_barras, existencia, ...)
-        None: Si no se encuentra el producto
+    Busca un producto por su código de barras (idCodigo)
     """
     try:
-        cursor = obtener_conexion.cursor()
-        
-        # Ajusta esta consulta según la estructura de tu tabla productos
-        # Asumiendo que tienes columnas: id, nombre, precio, codigo_barras, existencia
+        conn = obtener_conexion()
+        cursor = conn.cursor()
+
         query = """
-            SELECT id, nombre, precio, codigo_barras, existencia 
-            FROM productos 
-            WHERE codigo_barras = ?
+            SELECT idCodigo, Nombre, PrecioUnitario, Contenido, Existencia
+            FROM producto
+            WHERE idCodigo = %s
         """
-        
+
         cursor.execute(query, (codigo_barras,))
         resultado = cursor.fetchone()
+
         cursor.close()
-        
+        conn.close()
         return resultado
-        
+
     except Exception as e:
         print(f"Error al buscar producto por código: {e}")
         return None
