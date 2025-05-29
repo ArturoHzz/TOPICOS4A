@@ -52,17 +52,24 @@ INSERT INTO unidad (idUnidad, Nombre, Abreviatura) VALUES
 
 
 -- Productos
-INSERT INTO producto (
-  idCodigo, Nombre, Contenido, CostoUnitario, PrecioUnitario,
-  Existencia, Activo, Categoria_idCategoria, Unidad_idUnidad
-) VALUES
-('7502223709225', 'Paracetamol', 500, 20.00, 31.00, 50, 1, 1, 1),
-('7502223709348', 'Omeprazol', 20, 80.00, 133.00, 20, 1, 2, 1),
+INSERT INTO producto (idCodigo, Nombre, Contenido, CostoUnitario, PrecioUnitario, Existencia, Activo, Categoria_idCategoria, Unidad_idUnidad) VALUES
+('7501008494226', 'Aspirina Junior', 300, 22.00, 38.00, 50, 1, 1, 1),
+('7501008498842', 'Pastillas Vitamina C', 1000, 10.00, 18.00, 120, 1, 5, 1),
+('7501058715555', 'Tempra Fen', 325, 25.00, 42.00, 40, 1, 1, 1),
+('7501125179983', 'Fluconazol', 150, 19.00, 33.00, 30, 1, 2, 1),
+('7501125180699', 'Aciclovir', 200, 21.00, 36.00, 35, 1, 2, 1),
+('7501258207409', 'Diclofenaco', 100, 18.00, 30.00, 70, 1, 3, 1),
+('7501300420565', 'Aliren Antigripal Gotas', 25, 28.00, 47.00, 25, 1, 4, 4),
+('7501358170863', 'Zinc', 250, 30.00, 50.00, 60, 1, 6, 4),
+('750223700093',  'Loratadina Infantil', 5, 10.00, 18.00, 20, 1, 4, 1),
+('750223709225',  'Paracetamol Jarabe', 120, 14.00, 24.00, 30, 1, 1, 4),
+('750223709348',  'Omeprazol Infantil', 10, 15.00, 26.00, 18, 1, 2, 1),
+('7502235760139', 'Regenesis Max', 60, 40.00, 65.00, 22, 1, 5, 1),
+('7502276850530', 'Cefalexina', 500, 25.00, 40.00, 50, 1, 2, 1),
 ('7502276853548', 'Ibuprofeno', 400, 15.00, 25.00, 100, 1, 3, 1),
 ('7503006569524', 'Amoxicilina', 500, 20.00, 35.00, 80, 1, 2, 1),
-('7501008498842', 'Pastillas Vitamina C', 1000, 10.00, 18.00, 120, 1, 5, 1),
-('7502223700093', 'Loratadina', 10, 12.00, 20.00, 90, 1, 4, 1),
-('7501358170863', 'Zinc', 250, 30.00, 50.00, 60, 1, 6, 4),
-('7501258207409', 'Diclofenaco', 100, 18.00, 30.00, 70, 1, 3, 1),
-('7502276850530', 'Cefalexina', 500, 25.00, 40.00, 50, 1, 2, 1),
-('7506472803161', 'Ácido Fólico', 5, 5.00, 9.00, 110, 1, 5, 1);
+('7503006098323', 'Microdacyn Solución', 250, 35.00, 58.00, 28, 1, 6, 4),
+('7503036605931', 'LIFEED5', 30, 32.00, 54.00, 40, 1, 5, 1),
+('7503038209887', 'Proteína Birdman Resveratrol', 500, 75.00, 120.00, 15, 1, 5, 2),
+('7506472803161', 'Ácido Fólico', 5, 5.00, 9.00, 110, 1, 5, 1),
+('7506472825804', 'Complejo B', 100, 20.00, 34.00, 45, 1, 5, 1);
