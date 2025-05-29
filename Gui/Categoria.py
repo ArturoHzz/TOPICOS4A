@@ -5,7 +5,7 @@ from Persistence.Categoria_db import obtener_categorias,insertar_categoria,elimi
 def categoria_view(page: ft.Page):
     txt_id = ft.TextField(label="ID Categoria", disabled=False)
     txt_nombre = ft.TextField(label="Nombre")
-    btn_agregar = ft.ElevatedButton("Agregar")
+    btn_agregar = ft.ElevatedButton("Agregar", on_click= lambda e: agregar_categoria() )
 
     data_table = ft.DataTable(
         columns=[
@@ -46,7 +46,7 @@ def categoria_view(page: ft.Page):
             )
         page.update()
 
-    def agregar_categoria(e):
+    def agregar_categoria(e=None):
         if txt_id.value == "" or txt_nombre.value == "":
             return
         try:
