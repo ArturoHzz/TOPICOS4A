@@ -25,8 +25,7 @@ def venta_view(page: ft.Page):
     )
 
     txt_cantidad = ft.TextField(label="Cantidad", value="1")
-    txt_precio_unitario = ft.TextField(label="Precio Unitario")
-    
+
 
     txt_producto_info = ft.Text(
         value="",
@@ -185,29 +184,29 @@ def venta_view(page: ft.Page):
             print(f"Error eliminando detalle: {ex}")
 
     def agregar_detalle(e):
-        """Método manual para agregar productos (dropdown)"""
+        """Método manual para agregar productos (dropdown) usando el precio del producto"""
         try:
             id_producto = dropdown_producto.value
             if not id_producto:
                 raise ValueError("Selecciona un producto")
-            cantidad = float(txt_cantidad.value or 1)
-            precio_unit = float(txt_precio_unitario.value)
-            if cantidad <= 0 or precio_unit <= 0:
-                raise ValueError("Cantidad y precio deben ser mayores a 0")
-            
-            nombre_producto = next(p.text for p in dropdown_producto.options if p.key == id_producto)
-            subtotal = cantidad * precio_unit
-            
 
-            codigo_barras = "N/A"  
-            try:
-                productos = obtener_productos()
-                producto_seleccionado = next(p for p in productos if str(p[0]) == id_producto)
-                if len(producto_seleccionado) > 3:  
-                    codigo_barras = producto_seleccionado[3]
-            except:
-                pass
-            
+            cantidad = float(txt_cantidad.value or 1)
+            if cantidad <= 0:
+                raise ValueError("Cantidad debe ser mayor a 0")
+
+            # Buscar producto completo por ID para obtener precio y código
+            productos = obtener_productos()
+            producto_seleccionado = next(p for p in productos if str(p[0]) == id_producto)
+            nombre_producto = producto_seleccionado[1]
+            precio_unit = float(producto_seleccionado[2])  # PrecioUnitario
+            codigo_barras = producto_seleccionado[3] if len(producto_seleccionado) > 3 else "N/A"
+            existencia = int(producto_seleccionado[5]) if len(producto_seleccionado) > 5 else 0
+
+            if cantidad > existencia:
+                raise ValueError(f"Cantidad ({cantidad}) excede existencia ({existencia})")
+
+            subtotal = cantidad * precio_unit
+
             detalles_venta.append((id_producto, nombre_producto, cantidad, precio_unit, subtotal, codigo_barras))
             detalle_table.rows.append(ft.DataRow(cells=[
                 ft.DataCell(ft.Text(nombre_producto)),
@@ -224,13 +223,12 @@ def venta_view(page: ft.Page):
                     )
                 )
             ]))
-            
+
             txt_cantidad.value = "1"
-            txt_precio_unitario.value = ""
             dropdown_producto.value = None
             actualizar_total()
             page.update()
-            
+
         except Exception as ex:
             page.snack_bar = ft.SnackBar(ft.Text(f"Error al agregar detalle: {ex}"), open=True)
             page.update()
@@ -283,7 +281,6 @@ def venta_view(page: ft.Page):
         dropdown_forma_pago.value = None
         dropdown_producto.value = None
         txt_cantidad.value = "1"
-        txt_precio_unitario.value = ""
         txt_codigo_barras.value = ""
         txt_producto_info.value = ""
         detalle_table.rows.clear()
@@ -372,7 +369,7 @@ def venta_view(page: ft.Page):
         
         # Método manual (dropdown)
         ft.Text("Agregar Manualmente", size=18, weight="bold"),
-        ft.Row([dropdown_producto, txt_precio_unitario]),
+        ft.Row([dropdown_producto]),
         ft.ElevatedButton("Agregar Detalle", on_click=agregar_detalle),
         
         ft.Divider(),
